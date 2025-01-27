@@ -55,8 +55,9 @@ const Contact = () => {
 
   return (
     <>
+      <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-black h-[100vh] md:h-auto">
      <Navbar/>
-      <div className="contact-container bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white flex flex-col px-6 py-10">
+      <div className="contact-container  text-white flex flex-col px-6 py-10">
        
         <header className="w-full text-center mb-6">
           <div className="flex justify-center space-x-6 text-xl">
@@ -181,6 +182,7 @@ const Contact = () => {
             </button>
           </form>
         )}
+      </div>
       </div>
       <Footer />
     </>

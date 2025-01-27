@@ -8,7 +8,7 @@ const Services = () => {
       <Navbar />
       <div className="services-container min-h-screen px-8 py-12 bg-gradient-to-br from-gray-800 via-gray-700 to-black text-white flex flex-col justify-start items-center">
         <div className="w-full mb-12 text-center">
-          <h1 className="text-3xl md:text-4xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
+          <h1 className="text-3xl md:text-4xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-400">
             Our Services
           </h1>
           <p className="text-base md:text-lg leading-relaxed max-w-3xl mx-auto text-gray-300">
@@ -17,7 +17,7 @@ const Services = () => {
         </div>
 
         <div className="services-list grid gap-8 sm:grid-cols-2 lg:grid-cols-3 text-center w-full px-4">
-          <div className="service-item bg-gradient-to-br from-green-400 to-blue-500 rounded-2xl shadow-lg p-6">
+          <div className="service-item bg-gradient-to-br from-light-green-500 to-blue-600 rounded-2xl shadow-lg p-6">
             <h2 className="text-xl md:text-2xl font-bold mb-4 text-white">
               Multi-Language Support
             </h2>
@@ -26,7 +26,7 @@ const Services = () => {
             </p>
           </div>
 
-          <div className="service-item bg-gradient-to-br from-green-400 to-blue-500 rounded-2xl shadow-lg p-6">
+          <div className="service-item bg-gradient-to-br from-light-green-500 to-blue-600 rounded-2xl shadow-lg p-6">
             <h2 className="text-xl md:text-2xl font-bold mb-4 text-white">
               Real-Time Code Execution
             </h2>
@@ -35,7 +35,7 @@ const Services = () => {
             </p>
           </div>
 
-          <div className="service-item bg-gradient-to-br from-green-400 to-blue-500 rounded-2xl shadow-lg p-6">
+          <div className="service-item bg-gradient-to-br from-light-green-500 to-blue-600 rounded-2xl shadow-lg p-6">
             <h2 className="text-xl md:text-2xl font-bold mb-4 text-white">
               Project Management
             </h2>
@@ -44,7 +44,7 @@ const Services = () => {
             </p>
           </div>
 
-          <div className="service-item bg-gradient-to-br from-green-400 to-blue-500 rounded-2xl shadow-lg p-6">
+          <div className="service-item bg-gradient-to-br from-light-green-500 to-blue-600 rounded-2xl shadow-lg p-6">
             <h2 className="text-xl md:text-2xl font-bold mb-4 text-white">
               Auto-Save Functionality
             </h2>
@@ -53,7 +53,7 @@ const Services = () => {
             </p>
           </div>
 
-          <div className="service-item bg-gradient-to-br from-green-400 to-blue-500 rounded-2xl shadow-lg p-6">
+          <div className="service-item bg-gradient-to-br from-light-green-500 to-blue-600 rounded-2xl shadow-lg p-6">
             <h2 className="text-xl md:text-2xl font-bold mb-4 text-white">
               Secure and User-Friendly
             </h2>
@@ -62,7 +62,7 @@ const Services = () => {
             </p>
           </div>
 
-          <div className="service-item bg-gradient-to-br from-green-400 to-blue-500 rounded-2xl shadow-lg p-6">
+          <div className="service-item bg-gradient-to-br from-light-green-500 to-blue-600 rounded-2xl shadow-lg p-6">
             <h2 className="text-xl md:text-2xl font-bold mb-4 text-white">
               Community Driven
             </h2>

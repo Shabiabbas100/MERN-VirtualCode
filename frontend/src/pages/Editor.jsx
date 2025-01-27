@@ -27,7 +27,7 @@ const Editor = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          setCode(data.project.code); //
+          setCode(data.project.code); 
           setData(data.project);
         } else {
           toast.error(data.msg);
@@ -158,8 +158,8 @@ const Editor = () => {
     <>
       <Navbar />
       <div
-        className="flex flex-col md:flex-row items-center justify-between"
-        style={{ height: "calc(100vh - 90px)" }}
+        className="flex flex-col md:flex-row items-center justify-between h-[calc(100vh-178px)] md:h-[calc(100vh-90px)]"
+        
       >
         <div className="left w-full md:w-[60%] h-full sticky top-0">
           <EditorVs
@@ -172,6 +172,11 @@ const Editor = () => {
             width="100%"
             language="python"
             value={code}
+            options={{
+              fontSize: 15, // Adjust font size for readability on small screens
+              scrollBeyondLastLine: false,
+              minimap: { enabled: false }, // Disable minimap for smaller screens
+            }}
           />
         </div>
 

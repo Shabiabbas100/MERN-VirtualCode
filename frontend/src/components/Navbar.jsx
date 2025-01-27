@@ -10,9 +10,9 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="nav flex flex-wrap small: px-4 px-[60px] items-center justify-between h-[90px] bg-stone-900">
+      <div className="nav flex flex-wrap small: px-4 px-[60px] items-center justify-between h-[70px] bg-stone-900 md:h-[90px]">
         {/* Logo */}
-        <img src={logo} className="w-[190px] object-cover" alt="Logo" />
+        <img src={logo} className="w-[150px] object-cover md:w-[190px]" alt="Logo" />
 
         {/* Links */}
         <div className="links hidden md:flex items-center gap-[15px]">
@@ -51,7 +51,7 @@ const Navbar = () => {
       </div>
 
       
-      <div className={`sm:hidden ${isMenuOpen ? "block" : "hidden"} bg-[#0f0e0e] text-white`}>
+      <div className={`sm:hidden ${isMenuOpen ? "block" : "hidden"} !bg-transparent bg-gradient-to-br from-gray-900 via-gray-800 text-white`}>
         <Link
           className="block px-4 py-2 transition-all hover:text-blue-500"
           to="/home"
