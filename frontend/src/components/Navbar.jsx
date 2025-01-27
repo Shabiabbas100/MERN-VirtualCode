@@ -29,7 +29,7 @@ const Navbar = () => {
                 localStorage.removeItem("fullName");
               }
               navigate("/login");
-              window.location.reload();
+              
             }}
             className="btnNormal bg-red-500 transition-all hover:bg-red-600 px-[20px]"
           >
