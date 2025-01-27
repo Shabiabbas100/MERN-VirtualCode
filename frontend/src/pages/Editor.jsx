@@ -173,9 +173,9 @@ const Editor = () => {
             language="python"
             value={code}
             options={{
-              fontSize: 15, // Adjust font size for readability on small screens
+              fontSize: 15, 
               scrollBeyondLastLine: false,
-              minimap: { enabled: false }, // Disable minimap for smaller screens
+              minimap: { enabled: false }, 
             }}
           />
         </div>
@@ -184,18 +184,24 @@ const Editor = () => {
 
        
 
-         <div className="hidden md:block right p-[15px] w-[50%] h-full bg-[#27272a] overflow-y-auto">
-           <div className="flex pb-3 border-b-[1px] border-b-[#1e1e1f] items-center justify-between px-[30px]">
-             <p className="p-0 m-0">Output</p>
+         <div className="hidden md:block right p-[10px] w-[50%] h-full bg-[#27272a] overflow-y-auto">
+           <div className="flex pb-3 border-b-[1px] border-b-[#1e1e1f] items-center justify-between px-[30px] mb-[10px]">
+             <p className="p-0 m-0">Output Window</p>
            <button
-             className="btnNormal !w-fit !px-[20px] bg-blue-500 transition-all hover:bg-blue-600"
+             className="btnNormal !w-fit !px-[15px] bg-blue-500 transition-all hover:bg-blue-600"
                onClick={runProject}
              >
                Run
              </button>
+             <button
+        className="btnNormal !w-fit !px-[12px] bg-blue-500 transition-all hover:bg-blue-600 md:mt-0 mt-auto"
+        onClick={saveProject}
+      >
+        Save Project
+      </button>
         </div>
            <pre
-             className={`w-full h-[75vh] ${error ? "text-red-500" : ""}`}
+             className={`w-full h-[75vh] mt-[10px] ${error ? "text-red-500" : ""}`}
              style={{ textWrap: "nowrap" }}
            >
            {output}
