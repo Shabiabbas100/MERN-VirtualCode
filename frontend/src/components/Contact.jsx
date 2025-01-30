@@ -91,7 +91,7 @@ const Contact = () => {
         </h1>
 
         {isSubmitted ? (
-          <div className="text-center text-lg">
+          <div className="h-[100vh] text-center text-lg">
             <p>Thank you for your message! We will get back to you soon.</p>
           </div>
         ) : (
