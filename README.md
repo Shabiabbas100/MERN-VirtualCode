@@ -1,4 +1,4 @@
-# Codex - FullStack Code IDE |[LIVE PREVIEW](https://codex-ide-five.vercel.app/)
+# Codex - FullStack Code IDE | [LIVE PREVIEW](https://codex-ide-five.vercel.app/)
 
 Codex is a web-based IDE built using the MERN stack that allows users to write, edit, and run code in multiple programming languages such as C, C++, Java, Python, and Go. It provides an intuitive interface for managing projects and executing code efficiently.
 ## Features
