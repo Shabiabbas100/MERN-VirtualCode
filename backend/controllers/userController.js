@@ -42,7 +42,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
     }
 
 
-     bcrypt.genSalt(12, function (err, salt) {
+     bcrypt.genSalt(8, function (err, salt) {
       bcrypt.hash(pwd, salt, async function (err, hash) {
 
         let user = await userModel.create({
@@ -75,8 +75,10 @@ exports.login = async (req, res) => {
   try {
 
     let { email, pwd } = req.body;
-
+    
+    console.time('findUser');
     let user = await userModel.findOne({ email: email });
+    console.timeEnd('findUser');
     if (!user) {
       return res.status(404).json({
         success: false,
@@ -118,8 +120,9 @@ exports.createProject = async (req, res) => {
 
     let { name, projLanguage, token, version } = req.body;
     let decoded = jwt.verify(token, secret);
+    
     let user = await userModel.findOne({ _id: decoded.userId });
-
+    
     if (!user) {
       return res.status(404).json({
         success: false,

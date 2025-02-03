@@ -8,7 +8,9 @@ const SignUp = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
+  const navigate = useNavigate();
   const submitForm = (e) => {
+    
     e.preventDefault();
     fetch(api_base_url + "/signUp", {
       mode: "cors",
