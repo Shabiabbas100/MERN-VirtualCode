@@ -28,6 +28,7 @@ const Navbar = () => {
                 localStorage.removeItem("isLoggedIn");
                 localStorage.removeItem("fullName");
               }
+              localStorage.clear();
               navigate("/login");
               
             }}
