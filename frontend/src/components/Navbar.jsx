@@ -21,21 +21,18 @@ const Navbar = () => {
           <Link className="transition-all hover:text-blue-500" to="/services">Services</Link>
           <Link className="transition-all hover:text-blue-500" to="/contact">Contact</Link>
           <button
-            onClick={() => {
-              const token = localStorage.getItem("token");
-              if (token) {
-                localStorage.removeItem("token");
-                localStorage.removeItem("isLoggedIn");
-                localStorage.removeItem("fullName");
-              }
-              localStorage.clear();
-              navigate("/login");
-              
-            }}
-            className="btnNormal bg-red-500 transition-all hover:bg-red-600 px-[20px]"
-          >
-            Logout
-          </button>
+  onClick={() => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("fullName");
+    
+    setTimeout(() => navigate("/login"), 100); // Ensures localStorage is cleared before redirect
+  }}
+  className="btnNormal bg-red-500 transition-all hover:bg-red-600 px-[20px]"
+>
+  Logout
+</button>
+
         </div>
 
         
