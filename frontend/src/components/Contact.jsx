@@ -53,138 +53,79 @@ const Contact = () => {
     }
   };
 
+  
   return (
     <>
-      <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-black h-[100vh] md:h-auto">
-     <Navbar/>
-      <div className="contact-container  text-white flex flex-col px-6 py-10">
-       
-        <header className="w-full text-center mb-6">
-          <div className="flex justify-center space-x-6 text-xl">
-            <a
-              href="https://linkedin.com/in/shabiabbas100"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:underline"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://github.com/Shabiabbas100"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-500 hover:underline"
-            >
-              GitHub
-            </a>
-            <a
-              href="mailto:shabiabbs100@gmail.com"
-              className="text-red-500 hover:underline"
-            >
-              Email
-            </a>
-          </div>
-        </header>
-
-        <h1 className="text-4xl font-bold mb-4 text-center  bg-clip-text">
-          Contact Us
-        </h1>
-
-        {isSubmitted ? (
-          <div className="h-[100vh] text-center text-lg">
-            <p>Thank you for your message! We will get back to you soon.</p>
-          </div>
-        ) : (
-          <form
-            onSubmit={handleSubmit}
-            className="w-full max-w-md bg-[#3b3f46] p-8 rounded-lg shadow-lg mx-auto"
-          >
-            <div className="mb-4">
-              <label
-                htmlFor="name"
-                className="block text-sm font-semibold mb-2"
-              >
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full p-3 rounded-md bg-[#1f2228] text-white focus:outline-none"
-                required
-              />
-            </div>
-
-            <div className="mb-4">
-              <label
-                htmlFor="email"
-                className="block text-sm font-semibold mb-2"
-              >
+      <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-black min-h-screen flex flex-col">
+        <Navbar />
+        
+        <div className="contact-container text-white flex flex-col px-6 py-10 flex-grow">
+          
+          {/* Social Links */}
+          <header className="w-full text-center mb-6">
+            <div className="flex justify-center space-x-6 text-xl">
+              <a href="https://linkedin.com/in/shabiabbas100" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                LinkedIn
+              </a>
+              <a href="https://github.com/Shabiabbas100" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:underline">
+                GitHub
+              </a>
+              <a href="mailto:shabiabbs100@gmail.com" className="text-red-500 hover:underline">
                 Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full p-3 rounded-md bg-[#1f2228] text-white focus:outline-none"
-                required
-              />
+              </a>
             </div>
-
-            <div className="mb-4">
-              <label
-                htmlFor="subject"
-                className="block text-sm font-semibold mb-2"
-              >
-                Subject
-              </label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                className="w-full p-3 rounded-md bg-[#1f2228] text-white focus:outline-none"
-                required
-              />
+          </header>
+  
+          <h1 className="text-4xl font-bold mb-4 text-center">Contact Us</h1>
+  
+          {isSubmitted ? (
+            <div className="text-center text-lg mx-auto">
+              <p>Thank you for your message! We will get back to you soon.</p>
             </div>
-
-            <div className="mb-4">
-              <label
-                htmlFor="message"
-                className="block text-sm font-semibold mb-2"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full p-3 rounded-md bg-[#1f2228] text-white focus:outline-none"
-                rows="4"
-                required
-              />
-            </div>
-
-            {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
-
-            <button
-              type="submit"
-              className="w-full p-3 bg-[#4CAF50] text-white rounded-md font-semibold hover:bg-[#45a049] focus:outline-none"
-              disabled={isLoading}
-            >
-              {isLoading ? "Sending..." : "Send Message"}
-            </button>
-          </form>
-        )}
+          ) : (
+            <form onSubmit={handleSubmit} className="w-full max-w-md md:max-w-lg bg-[#3b3f46] p-8 rounded-lg shadow-lg mx-auto">
+              
+              {/* Name */}
+              <div className="mb-4">
+                <label htmlFor="name" className="block text-sm font-semibold mb-2">Name</label>
+                <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} 
+                  className="w-full p-3 rounded-md bg-[#1f2228] text-white focus:outline-none" required />
+              </div>
+  
+              {/* Email */}
+              <div className="mb-4">
+                <label htmlFor="email" className="block text-sm font-semibold mb-2">Email</label>
+                <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} 
+                  className="w-full p-3 rounded-md bg-[#1f2228] text-white focus:outline-none" required />
+              </div>
+  
+              {/* Subject */}
+              <div className="mb-4">
+                <label htmlFor="subject" className="block text-sm font-semibold mb-2">Subject</label>
+                <input type="text" id="subject" name="subject" value={formData.subject} onChange={handleChange} 
+                  className="w-full p-3 rounded-md bg-[#1f2228] text-white focus:outline-none" required />
+              </div>
+  
+              {/* Message */}
+              <div className="mb-4">
+                <label htmlFor="message" className="block text-sm font-semibold mb-2">Message</label>
+                <textarea id="message" name="message" value={formData.message} onChange={handleChange} 
+                  className="w-full p-3 rounded-md bg-[#1f2228] text-white focus:outline-none" rows="4" required />
+              </div>
+  
+              {/* Error Message */}
+              {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+  
+              {/* Submit Button */}
+              <button type="submit" className="w-full p-3 bg-[#4CAF50] text-white rounded-md font-semibold hover:bg-[#45a049] focus:outline-none" disabled={isLoading}>
+                {isLoading ? "Sending..." : "Send Message"}
+              </button>
+            </form>
+          )}
+        </div>
+  
+        <Footer />
       </div>
-      </div>
-      <Footer />
     </>
   );
 };
