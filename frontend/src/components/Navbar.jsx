@@ -21,14 +21,14 @@ const Navbar = () => {
             <img className="h-12 w-20 mr-2" src={logo} alt="Logo" />
             <span className="text-xl tracking-tight">VirtualCode</span>
           </div>
-          <ul className="hidden lg:flex ml-14 space-x-12">
+          <ul className="hidden above-850:flex ml-14 space-x-12">
             {navItems.map((item, index) => (
               <li key={index}>
                  <Link className="transition-all hover:text-blue-500" to={item.href}> {item.label}</Link>
               </li>
             ))}
           </ul>
-          <div className="hidden md:flex justify-center space-x-12 items-center">
+          <div className="hidden above-850:flex justify-center space-x-12 items-center mx-4">
            
              <button
   onClick={() => {
@@ -44,7 +44,7 @@ const Navbar = () => {
   Logout
 </button>
           </div>
-          <div className="md:hidden flex flex-col justify-end">
+          <div className="above-850:hidden flex flex-col justify-end">
             <button onClick={toggleNavbar}>
               {mobileDrawerOpen ? <X /> : <Menu />}
             </button>
