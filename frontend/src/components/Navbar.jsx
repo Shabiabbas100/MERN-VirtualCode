@@ -28,7 +28,7 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-          <div className="hidden lg:flex justify-center space-x-12 items-center">
+          <div className="hidden md:flex justify-center space-x-12 items-center">
            
              <button
   onClick={() => {
@@ -44,7 +44,7 @@ const Navbar = () => {
   Logout
 </button>
           </div>
-          <div className="lg:hidden md:flex flex-col justify-end">
+          <div className="md:hidden flex flex-col justify-end">
             <button onClick={toggleNavbar}>
               {mobileDrawerOpen ? <X /> : <Menu />}
             </button>
@@ -57,8 +57,21 @@ const Navbar = () => {
                 
                 <Link className="block px-4 py-2 transition-all hover:text-blue-500" to={item.href} > {item.label} </Link>
               ))}
+               <button
+    onClick={() => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("fullName");
+    
+    setTimeout(() => navigate("/login"), 100); // Ensures localStorage is cleared before redirect
+    }}
+    className="btnNormal bg-gradient-to-r from-orange-500 to-orange-800 transition-all hover:from-orange-600 hover:to-orange-900 px-[20px] w-[1/4]"
+
+>
+  Logout
+</button>
             </ul>
-            
+           
           </div>
         )}
       </div>
