@@ -1,8 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 body {
-    background-color: rgb(40, 44, 52);
+    /* background-color: rgb(40, 44, 52); */
+    
     color: #fff;
 }
- 
+:root {
+    font-family: "Poppins", sans-serif;
+    color-scheme: dark;
+  }
 .inputBox {
     display: flex;
     align-items: center;
@@ -21,11 +27,11 @@ body {
     border-radius: 30px;
 }
 .btnNormal {
-    padding: 10px;
+    padding: 8px;
     width: 100%;
     border: none;
     outline: none;
-    border-radius: 5px;
+    border-radius: 15px;
     cursor: pointer;
 }
 .projects .project {

@@ -56,7 +56,7 @@ const Contact = () => {
   
   return (
     <>
-      <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-black min-h-screen flex flex-col">
+      <div className=" min-h-screen flex flex-col">
         <Navbar />
         
         <div className="contact-container text-white flex flex-col px-6 py-10 flex-grow">
@@ -67,10 +67,10 @@ const Contact = () => {
               <a href="https://linkedin.com/in/shabiabbas100" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
                 LinkedIn
               </a>
-              <a href="https://github.com/Shabiabbas100" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:underline">
+              <a href="https://github.com/Shabiabbas100" target="_blank" rel="noopener noreferrer" className="hover:underline">
                 GitHub
               </a>
-              <a href="mailto:shabiabbs100@gmail.com" className="text-red-500 hover:underline">
+              <a href="mailto:shabiabbs100@gmail.com" className="text-orange-700 hover:underline">
                 Email
               </a>
             </div>
@@ -117,7 +117,8 @@ const Contact = () => {
               {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
   
               {/* Submit Button */}
-              <button type="submit" className="w-full p-3 bg-[#4CAF50] text-white rounded-md font-semibold hover:bg-[#45a049] focus:outline-none" disabled={isLoading}>
+              <button type="submit" className="btnNormal bg-gradient-to-r from-orange-500 to-orange-800 transition-all hover:from-orange-600 hover:to-orange-900 px-[20px]"
+ disabled={isLoading}>
                 {isLoading ? "Sending..." : "Send Message"}
               </button>
             </form>

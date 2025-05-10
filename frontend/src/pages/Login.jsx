@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../Asset/logobig.png";
+import logo from "../Asset/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Footer from "../components/Footer";
@@ -8,10 +8,16 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
   const [fullName,setFullName] = useState("");
-  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
+
+
+  const navigate = useNavigate();
+   
   const submitForm = (e) => {
     e.preventDefault();
+    setLoading(true); // Show spinner
+
     fetch(api_base_url + "/login", {
       mode: "cors",
       method: "POST",
@@ -25,6 +31,7 @@ const Login = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        setLoading(false); // Hide spinner
         if (data.success) {
           localStorage.setItem("token", data.token);
           localStorage.setItem("isLoggedIn", true);
@@ -40,15 +47,16 @@ const Login = () => {
   
 return (
   <>
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black px-4">
+    <div className="flex flex-col items-center justify-center min-h-screen ">
       <form
         onSubmit={submitForm}
         className="w-full max-w-md flex flex-col items-center bg-[#0f0e0e] p-6 sm:p-8 rounded-lg shadow-xl shadow-black/50"
       >
         
-        <img className="w-48 sm:w-48 object-cover mb-6" src={logo} alt="Logo" />
-
-      
+        <div className="flex items-center flex-shrink-0 mb-8">
+                   <img className="h-12 w-16 mr-2" src={logo} alt="Logo" />
+                   <span className="text-2xl tracking-wide">VirtualCode</span>
+                 </div>
         <div className="inputBox w-full mb-4">
           <input
             onChange={(e) => setEmail(e.target.value)}
@@ -81,9 +89,17 @@ return (
         </p>
 
         
-        <button className="w-full py-2 mt-6 bg-blue-500 text-white rounded transition-all hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-500">
-          Login
-        </button>
+        <button
+  className="mt-4 btnNormal bg-gradient-to-r from-orange-500 to-orange-800 transition-all hover:from-orange-600 hover:to-orange-900 px-[20px] py-2 text-white flex items-center justify-center rounded disabled:opacity-60"
+  disabled={loading}
+>
+  {loading ? (
+    <div className="h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+  ) : (
+    "Login"
+  )}
+</button>
+
       </form>
     </div>
     <Footer />

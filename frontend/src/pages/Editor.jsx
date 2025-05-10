@@ -155,7 +155,7 @@ const Editor = () => {
   };
 
   return (
-    <>
+    < >
       <Navbar />
       <div
         className="flex flex-col md:flex-row items-center justify-between h-[calc(100vh-178px)] md:h-[calc(100vh-90px)]"

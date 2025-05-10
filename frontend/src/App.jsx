@@ -8,7 +8,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Editor from "./pages/Editor";
 import About from "./components/About"
-import Services from "./components/Services"
+import Testimonials from "./components/Testimonials"
 
 import Contact from "./components/Contact"
 
@@ -42,7 +42,7 @@ const RouteHandler = () => {
 
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
+        <Route path="/services" element={<Testimonials />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NoPage />} />
       </Routes>

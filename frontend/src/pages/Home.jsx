@@ -186,25 +186,22 @@ const Home = () => {
 
   return (
     <>
-      <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-black min-h-screen">
+      <div className=" min-h-screen">
         <Navbar />
 
         <div className="flex flex-col items-center px-5 sm:px-[100px] justify-between mt-5 md:flex-row ">
           {/* Welcome Message */}
-          <h3 className="text-2xl sm:text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-pink-600 via-purple-500 to-blue-600 mt-4 text-center">
-            🚀 Welcome back,{" "}
-            {/* <span className="font-bold text-white bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-cyan-400">
-              {fullName}
-            </span> */}
-          
-          <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-700 to-blue-400">
-  {fullName}
-</span>
+          <h3 className="text-3xl font-semibold bg-clip-text  mt-4 text-center uppercase">
+  <span className="h-4 inline-block animate-pulseSlow mr-2 text-white">🚀</span>
+  Welcome back,{" "}
+  <span className="font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-yellow-600 via-red-600 to-pink-700 animate-glowPulse tracking-wider">
+    {fullName}
+  </span>
+  
+</h3>
 
 
 
-            !
-          </h3>
 
           {/* Create Project Button */}
           <div className="mt-4">
@@ -212,7 +209,8 @@ const Home = () => {
               onClick={() => {
                 setIsCreateModelShow(true);
               }}
-              className="btnNormal bg-blue-500 transition-all hover:bg-blue-600 px-4 py-2 text-sm sm:text-base"
+              className="btnNormal bg-gradient-to-r from-orange-500 to-orange-800 transition-all hover:from-orange-600 hover:to-orange-900 px-[20px]"
+
             >
               Create Project
             </button>
@@ -273,7 +271,8 @@ const Home = () => {
                       onClick={() => {
                         deleteProject(project._id);
                       }}
-                      className="btnNormal bg-red-500 transition-all hover:bg-red-600"
+                      className="btnNormal bg-gradient-to-r from-orange-500 to-orange-800 transition-all hover:from-orange-600 hover:to-orange-900 px-[20px]"
+
                     >
                       Delete
                     </button>
