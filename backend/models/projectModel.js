@@ -8,7 +8,7 @@ let projectSchema = new mongoose.Schema({
   projLanguage: {
     type: String,
     required: true,
-    enum: ["python", "java", "javascript", "cpp", "c", "go", "bash"]
+    enum: ["python", "java", "javascript", "cpp", "c", "go", "bash"],
   },
   code: {
     type: String,
@@ -25,7 +25,10 @@ let projectSchema = new mongoose.Schema({
   version: {
     type: String,
     required: true,
-  }
+  },
 });
+
+// Compound index for faster queries filtering by createdBy and sorting by date
+projectSchema.index({ createdBy: 1, date: -1 });
 
 module.exports = mongoose.model("Project", projectSchema);

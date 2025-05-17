@@ -73,12 +73,19 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 exports.login = async (req, res) => {
   try {
-
     let { email, pwd } = req.body;
-    
+
+    // Start timing the DB lookup
     console.time('findUser');
-    let user = await userModel.findOne({ email: email });
+
+    // Only fetch the password and name to reduce payload
+    let user = await userModel
+      .findOne({ email: email })
+      .select("password fullName") // only needed fields
+      .lean(); // plain JS object, faster
+
     console.timeEnd('findUser');
+
     if (!user) {
       return res.status(404).json({
         success: false,
@@ -86,34 +93,33 @@ exports.login = async (req, res) => {
       });
     }
 
-    bcrypt.compare(pwd, user.password, function (error, result) {
-      if (result) {
-       
-        let token = jwt.sign({ userId: user._id }, secret)
-       
-        return res.status(200).json({
-          success: true,
-          msg: "User logged in successfully",
-          token,
-          fullName:user.fullName
-        });
-        
-      }
-      else {
-        return res.status(401).json({
-          success: false,
-          msg: "Invalid password"
-        });
-      }
-    })
+    // bcrypt.compare is async, let's use async/await instead of callback
+    const match = await bcrypt.compare(pwd, user.password);
+
+    if (match) {
+      let token = jwt.sign({ userId: user._id }, secret);
+
+      return res.status(200).json({
+        success: true,
+        msg: "User logged in successfully",
+        token,
+        fullName: user.fullName
+      });
+    } else {
+      return res.status(401).json({
+        success: false,
+        msg: "Invalid password"
+      });
+    }
 
   } catch (error) {
     return res.status(500).json({
       success: false,
       msg: error.message
-    })
+    });
   }
 };
+
 
 exports.createProject = async (req, res) => {
   try {
@@ -185,7 +191,6 @@ exports.saveProject = async (req, res) => {
 }; 
 exports.getProjects = async (req, res) => {
   try {
-
     let { token } = req.body;
     let decoded = jwt.verify(token, secret);
     let user = await userModel.findOne({ _id: decoded.userId });
@@ -193,25 +198,29 @@ exports.getProjects = async (req, res) => {
     if (!user) {
       return res.status(404).json({
         success: false,
-        msg: "User not found"
+        msg: "User not found",
       });
     }
 
-    let projects = await projectModel.find({ createdBy: user._id });
+    // Use filtering by createdBy and sorting by date to leverage the index
+    let projects = await projectModel
+      .find({ createdBy: user._id })
+      .sort({ date: -1 })    // Sort by newest first
+      .limit(50);            // Limit results to 50 for faster response
 
     return res.status(200).json({
       success: true,
       msg: "Projects fetched successfully",
-      projects: projects
+      projects,
     });
-
   } catch (error) {
     return res.status(500).json({
       success: false,
-      msg: error.message
-    })
+      msg: error.message,
+    });
   }
 };
+
 exports.getProject = async (req, res) => {       // this Api will fetch an individual project💘
   try {
 
