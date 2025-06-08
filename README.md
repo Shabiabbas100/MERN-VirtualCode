@@ -1,6 +1,6 @@
-# Codex - FullStack Code IDE | [LIVE PREVIEW](https://mern-virtual-code.vercel.app/)
+# VirtualCode - FullStack Code IDE | [LIVE PREVIEW](https://mern-virtual-code.vercel.app/)
 
-Codex is a web-based IDE built using the MERN stack that allows users to write, edit, and run code in multiple programming languages such as C, C++, Java, Python, and Go. It provides an intuitive interface for managing projects and executing code efficiently.
+VirtualCode is a web-based IDE built using the MERN stack that allows users to write, edit, and run code in multiple programming languages such as C, C++, Java, Python, and Go. It provides an intuitive interface for managing projects and executing code efficiently.
 ## Features
 
 - User Authentication (Sign up / Log in)
